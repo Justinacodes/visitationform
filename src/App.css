@@ -1,0 +1,60 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+.textContainer{
+ margin-right: 31rem;
+}
+
+#email,
+#phoneNumber,
+#fullName,
+#whoToSee,
+#whoToSeeNo{
+  padding: 12px;
+  width: 50rem;
+}
+#purpose,
+#visitorType{
+  padding: 12px;
+  width: 51.5rem;
+}
+#privateNote{
+  width: 49rem;
+  padding: 20px;
+}
+input,
+select,
+textarea{
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #000;
+}
+button{
+  background-color: #000;
+  color: #fff;
+  border: #000 1px solid;
+  padding: 12px;
+  width: 150px;
+  border-radius: 10px;
+  margin-left: 42rem;
+}
+.mb{
+  margin-bottom: 15px;
+}
+form:active{
+  border: #000;
+}
+.errors{
+  color: red;
+}
+.visitationForm{
+  font-size: 30px;
+}
+.visitationFormText{
+  font-size: 18px;
+}
+
