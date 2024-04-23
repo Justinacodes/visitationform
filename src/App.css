@@ -1,14 +1,24 @@
-.container{
+.formContainer{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
-}
-.textContainer{
- margin-right: 31rem;
-}
 
+}
+.container{
+  padding: 3rem;
+ 
+}
+.d-flex {
+    display: flex;
+    justify-content: center;
+    gap: 29rem;
+    align-items: center;
+}
+#closeIcon{
+font-size: 30px;
+}
 #email,
 #phoneNumber,
 #fullName,
@@ -57,4 +67,7 @@ form:active{
 .visitationFormText{
   font-size: 18px;
 }
-
+.d-flex{
+  display: flex;
+  
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoClose } from "react-icons/io5";
 
 const VisitationForm = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,7 @@ const VisitationForm = () => {
     privateNote: "",
   });
   const [errors, setErrors] = useState({});
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -34,6 +36,7 @@ const VisitationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formErrors = {};
+    
 
     if (!formData.fullName.trim()) {
       formErrors.fullName = "Name is required";
@@ -89,137 +92,144 @@ const VisitationForm = () => {
   };
 
   return (
-    <>
-      <div className="textContainer">
-        <h2 className="visitationForm">Visitation Form</h2>
-        <p className="visitationFormText">
-          {" "}
-          Fill the details below to log your appointment
-        </p>
-      </div>
+    <div>
       <div className="container">
-        <form onSubmit={handleSubmit}>
-          <div className="mb">
-            <input
-              className=""
-              type="text"
-              id="fullName"
-              name="fullName"
-              placeholder="Visitor's Full Name"
-              value={formData.fullName}
-              onChange={handleChange}
-            />
-            {errors.fullName && <p className="errors">{errors.fullName}</p>}
+        <div className="d-flex">
+          <div className="textContainer">
+            <h2 className="visitationForm">Visitation Form</h2>
+            <p className="visitationFormText">
+              {" "}
+              Fill the details below to log your appointment
+            </p>
           </div>
+          <div>
+            <IoClose id="closeIcon" />
+          </div>
+        </div>
+        <div className="formContainer">
+          <form onSubmit={handleSubmit}>
+            <div className="mb">
+              <input
+                className=""
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Visitor's Full Name"
+                value={formData.fullName}
+                onChange={handleChange}
+              />
+              {errors.fullName && <p className="errors">{errors.fullName}</p>}
+            </div>
 
-          <div className="mb">
-            <input
-              className=""
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-            />
-            {errors.phoneNumber && (
-              <p className="errors">{errors.phoneNumber}</p>
-            )}
-          </div>
-          <div className="mb">
-            <input
-              className=""
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="errors">{errors.email}</p>}
-          </div>
-          <div className="mb">
-            <select
-              className=""
-              type="text"
-              id="visitorType"
-              name="visitorType"
-              value={formData.visitorType}
-              onChange={handleChange}
-            >
-              <option disabled value="">
-                Visitor Type
-              </option>
-              <option value="friend">Family</option>
-              <option value="Friend">Friend</option>
-              <option value="Vendor">Vendor</option>
-            </select>
+            <div className="mb">
+              <input
+                className=""
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                placeholder="Phone Number"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+              />
+              {errors.phoneNumber && (
+                <p className="errors">{errors.phoneNumber}</p>
+              )}
+            </div>
+            <div className="mb">
+              <input
+                className=""
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+              />
+              {errors.email && <p className="errors">{errors.email}</p>}
+            </div>
+            <div className="mb">
+              <select
+                className=""
+                type="text"
+                id="visitorType"
+                name="visitorType"
+                value={formData.visitorType}
+                onChange={handleChange}
+              >
+                <option disabled value="">
+                  Visitor Type
+                </option>
+                <option value="friend">Family</option>
+                <option value="Friend">Friend</option>
+                <option value="Vendor">Vendor</option>
+              </select>
 
-            {errors.visitorType && (
-              <p className="errors">{errors.visitorType}</p>
-            )}
-          </div>
-          <div className="mb">
-            <input
-              className=""
-              type="text"
-              id="whoToSee"
-              name="name"
-              placeholder="Who to see(Name)"
-              value={formData.whoToSee.name}
-              onChange={handleWhoToSeeChange}
-            />
-            {errors.whoToSeeName && (
-              <p className="errors">{errors.whoToSeeName}</p>
-            )}
-          </div>
-          <div className="mb">
-            <input
-              className=""
-              type="tel"
-              id="whoToSeeNo"
-              name="phoneNumber"
-              placeholder="Who to see(Phone Number)"
-              value={formData.whoToSee.phoneNumber}
-              onChange={handleWhoToSeeChange}
-            />
-            {errors.whoToSeePhoneNumber && (
-              <p className="errors">{errors.whoToSeePhoneNumber}</p>
-            )}
-          </div>
-          <div className="mb">
-            <select
-              className=""
-              type="text"
-              id="purpose"
-              name="purpose"
-              value={formData.purpose}
-              onChange={handleChange}
-            >
-              <option disabled value="">
-                Purpose for visit
-              </option>
-              <option value="Official">Official</option>
-              <option value="Personal">Personal</option>
-            </select>
-            {errors.purpose && <p className="errors">{errors.purpose}</p>}
-          </div>
-          <div className="mb">
-            <textarea
-              className=""
-              id="privateNote"
-              name="privateNote"
-              placeholder="Private Note"
-              value={formData.privateNote}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit" className="">
-            Submit Request
-          </button>
-        </form>
+              {errors.visitorType && (
+                <p className="errors">{errors.visitorType}</p>
+              )}
+            </div>
+            <div className="mb">
+              <input
+                className=""
+                type="text"
+                id="whoToSee"
+                name="name"
+                placeholder="Who to see(Name)"
+                value={formData.whoToSee.name}
+                onChange={handleWhoToSeeChange}
+              />
+              {errors.whoToSeeName && (
+                <p className="errors">{errors.whoToSeeName}</p>
+              )}
+            </div>
+            <div className="mb">
+              <input
+                className=""
+                type="tel"
+                id="whoToSeeNo"
+                name="phoneNumber"
+                placeholder="Who to see(Phone Number)"
+                value={formData.whoToSee.phoneNumber}
+                onChange={handleWhoToSeeChange}
+              />
+              {errors.whoToSeePhoneNumber && (
+                <p className="errors">{errors.whoToSeePhoneNumber}</p>
+              )}
+            </div>
+            <div className="mb">
+              <select
+                className=""
+                type="text"
+                id="purpose"
+                name="purpose"
+                value={formData.purpose}
+                onChange={handleChange}
+              >
+                <option disabled value="">
+                  Purpose for visit
+                </option>
+                <option value="Official">Official</option>
+                <option value="Personal">Personal</option>
+              </select>
+              {errors.purpose && <p className="errors">{errors.purpose}</p>}
+            </div>
+            <div className="mb">
+              <textarea
+                className=""
+                id="privateNote"
+                name="privateNote"
+                placeholder="Private Note"
+                value={formData.privateNote}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit" className="">
+              Submit Request
+            </button>
+          </form>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
