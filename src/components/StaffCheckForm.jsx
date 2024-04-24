@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import VisitationForm from "./VisitorsForm";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StaffCheck = () => {
   const [records, setRecords] = useState([]);
-  const [phoneNumber, setPhoneNumber] = useState([]);
-  const [error, setError] = useState([]);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate(); // Access the navigate function from React Router
 
   useEffect(() => {
     fetch("http://ezapi.issl.ng:3333/employeephone")
@@ -19,11 +19,9 @@ const StaffCheck = () => {
     const foundRecord = records.find((record) => record.phoneno === phoneNumber);
     
     if (foundRecord) {
-        <Link to={`/${VisitationForm}`}>
-          <button type="submit">Submit</button>
-        </Link>;
-    }
-    else {
+        // Redirect to VisitorsForm
+        navigate("/visitorsform");
+    } else {
       setError("Phone number not found")
     }
   }
@@ -32,7 +30,6 @@ const StaffCheck = () => {
     setPhoneNumber(e.target.value);
     setError("")
   }
-
 
   return (
     <div>
@@ -45,12 +42,7 @@ const StaffCheck = () => {
           value={phoneNumber}
           onChange={handleChange}
         />
-
-      
-          <button type="submit">Submit</button>
-        
-
-
+        <button type="submit">Submit</button>
         {error && <p id="errMessage">{error}</p>}
       </form>
     </div>
@@ -58,3 +50,4 @@ const StaffCheck = () => {
 };
 
 export default StaffCheck;
+
