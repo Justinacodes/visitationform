@@ -19,9 +19,7 @@ const StaffCheck = () => {
     const foundRecord = records.find((record) => record.phoneno === phoneNumber);
     
     if (foundRecord) {
-        <Link to={`/${VisitationForm}`}>
-          <button type="submit">Submit</button>
-        </Link>;
+      window.location.href = `/${VisitationForm}`;
     }
     else {
       setError("Phone number not found")
@@ -35,21 +33,22 @@ const StaffCheck = () => {
 
 
   return (
-    <div>
+    <div className="staffCheckContainer">
+      <div className="steps">
+        <h2>Staff Check Form</h2>
+        <p>STEP 1/2</p>
+      </div>
       <form onSubmit={handleSubmit} action="">
         <input
           type="tel"
           name=""
-          id=""
+          id="phoneNoCheck"
           placeholder="Input phone number"
           value={phoneNumber}
           onChange={handleChange}
         />
 
-      
-          <button type="submit">Submit</button>
-        
-
+        <button type="submit">Submit</button>
 
         {error && <p id="errMessage">{error}</p>}
       </form>

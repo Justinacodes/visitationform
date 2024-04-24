@@ -43,6 +43,15 @@ textarea{
   border-radius: 10px;
   border: 1px solid #000;
 }
+
+input,
+select,
+textarea:hover{
+  border: 1px solid #f1f1f134;
+}
+
+
+
 button{
   background-color: #000;
   color: #fff;
@@ -70,4 +79,20 @@ form:active{
 .d-flex{
   display: flex;
   
+}
+.staffCheckContainer{
+  padding: 5rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+}
+#phoneNoCheck{
+  padding: 12px;
+  width: 50rem;
+  margin-bottom: 30px;
+}
+.steps{
+  display: flex;
+  gap: 35rem;
+  align-items: center;
 }
